@@ -10,6 +10,14 @@ class encryption {
             console.log(err);
         }
     }
+
+    static async confirmEncryptedPassword(passwordUser, passwordDb){
+        try{
+            return await bcrypt.compare(passwordUser, passwordDb); 
+        }catch(err){
+            console.log(err)
+        }
+    }
 }
 
 export default encryption

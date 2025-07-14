@@ -14,14 +14,19 @@ const PostSchema = new mongoose.Schema({
             ref: "User",
         }], 
         coments:[{
-            type:String,
+            type: Object,
             ref: "User",
-        }]
-})
+        }],
+        saved:[{
+            type:mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        }],
+        postOwner:{
+            type: Object, 
+            ref: "User",
+        }
+}, {timestamps: true});
 
-PostSchema.statics.findPostById = function (id) {
-    return this.findById(id);
-}
 
 const Post = mongoose.model("Post", PostSchema);
 
